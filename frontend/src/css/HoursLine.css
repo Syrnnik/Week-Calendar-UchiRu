@@ -1,0 +1,7 @@
+.current-hour {
+    background-color: #b3b7ff !important;
+}
+
+.busy-hour {
+    background-color: #ebecff;
+}

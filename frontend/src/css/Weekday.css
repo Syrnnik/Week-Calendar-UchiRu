@@ -1,0 +1,27 @@
+.daysline-weekday {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+}
+
+.weekday-ltr {
+    font-size: 1em;
+    font-weight: 500;
+    margin-bottom: 25%;
+}
+
+.weekday-day {
+    font-size: 1.4em;
+    font-weight: 400;
+    padding: 25%;
+    border-radius: 5em;
+}
+
+#current-day {
+    background-color: #ff3131;
+    width: 100%;
+    color: #fff;
+}
