@@ -34,5 +34,3 @@ $ npm install
 $ npm start
 ```
 ### Now open `http://localhost:3000/` and you'll see the calendar for the week
-=======
-# 
