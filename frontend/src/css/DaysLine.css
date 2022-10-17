@@ -1,0 +1,76 @@
+.month-info-bg {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.daysline-bg {
+    display: flex;
+    background-color: #f6f6f6;
+    width: 100%;
+    margin-left: auto;
+    border-bottom: 2px solid #ebebeb;
+}
+
+.month-info {
+    width: calc(100% - 12.5%);
+    margin-left: auto;
+}
+
+.calendar-daysline {
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+
+.current-date {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.4em;
+    font-weight: 500;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2% 0;
+}
+
+.month-arrow {
+    cursor: pointer;
+    height: 15px;
+}
+
+.calendar-hourstable {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.hours-table td {
+    width: 10%;
+    padding: 2%;
+    border: 1px solid #bebebe;
+}
+
+.footer-bar {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    background-color: #f6f6f6;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 5%;
+    box-sizing: border-box;
+    border-top: 2px solid #ebebeb;
+}
+
+.footer-btn {
+    color: #ff3131;
+    font-size: 1.5em;
+    font-weight: 400;
+    padding: 2% 0;
+    cursor: pointer;
+}
