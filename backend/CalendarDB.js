@@ -27,16 +27,16 @@ class CalendarDB {
                 console.log("Getting error " + err);
                 exit(1);
             }
-            this.createTable(this.db);
+            this.createTable();
         });
     }
 
     // CREATE TABLE
     createTable() {
         this.db.run(`
-    CREATE TABLE IF NOT EXISTS ${this.tablename} (
-        ${this.col_id} TEXT NOT NULL PRIMARY KEY
-    );
+            CREATE TABLE IF NOT EXISTS ${this.tablename} (
+                ${this.col_id} TEXT NOT NULL PRIMARY KEY
+            );
         `);
     }
 
