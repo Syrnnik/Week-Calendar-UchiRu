@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
-import "../css/DaysLine.css";
-import Weekday from "./Weekday";
-import HoursLine from "./HoursLine";
-import PrevArrow from "../assets/prev-arrow.png";
+import { useEffect, useState } from "react";
 import NextArrow from "../assets/next-arrow.png";
+import PrevArrow from "../assets/prev-arrow.png";
+import "../css/DaysLine.css";
+import HoursLine from "./HoursLine";
+import Weekday from "./Weekday";
 
+// class DaysLine extends Component {
 function DaysLine() {
     const [date, SetDate] = useState(new Date());
     const [curMonth, SetCurMonth] = useState("");
@@ -62,31 +63,26 @@ function DaysLine() {
                 const xhr = new XMLHttpRequest();
                 xhr.open(
                     "DELETE",
-                    `http://127.0.0.1:8000/remove_day/${curHour.id}`
+                    `http://localhost:3003?id=${curHour.id}`
                 );
                 xhr.send();
             }
     }
-
+    
     useEffect(() => {
         async function getBusy() {
-            try {
-                var promise = await fetch(`http://localhost:3003/`);
-                var days = await promise.json();
-                // setDays([1, 2]);
-                setDays(days);
-                // console.log(days);
-                // console.log(allDays);
-
-                // console.log(promise.status);
-                // var busy = promise.json();
-                // console.log(busy);
-            } catch {}
+            var promise = await fetch(`http://localhost:3003/`);
+            var days = await promise.json();
+            setDays(days);
+            console.log(days);
+            days.forEach(day => {
+                var cell = document.getElementById(day.id);
+                cell.classList.add('busy-hour');
+            });
         }
+        getBusy();
 
         function genHours(firstWeekDay) {
-            getBusy();
-
             var hours = [];
             var time = "";
             var daysCount = daysInMonth(date.getFullYear(), date.getMonth());
@@ -99,13 +95,12 @@ function DaysLine() {
                         firstday={firstWeekDay}
                         daysCount={daysCount}
                         time={time}
-                        all_days={allDays}
                     />
                 );
             }
             return hours;
         }
-
+        
         var firstWeekDay = getFirstWeekDay(0);
         SetCurWeek(genWeek(firstWeekDay));
         SetCurHours(genHours(firstWeekDay));
