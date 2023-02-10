@@ -2,7 +2,7 @@ FROM node:18
 
 WORKDIR /backend/
 
-ADD package*.json /backend/
-ADD . /backend/
+ADD ./package*.json ./
+ADD ./ ./
 
-CMD [ "npm", "install" ]
+RUN npm install --silent
