@@ -2,7 +2,14 @@ FROM node:18
 
 WORKDIR /frontend/
 
-ADD package*.json /frontend/
-ADD . /frontend/
+COPY package*.json ./
 
-CMD [ "npm", "install" ]
+RUN npm install --silent
+
+COPY . .
+
+RUN npm run build --silent
+
+RUN npm install -g serve
+
+# CMD serve -s build
