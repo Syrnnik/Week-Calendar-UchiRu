@@ -2,14 +2,14 @@ version: "3"
 
 services:
   backend:
-    build: /backend/
+    build: backend/
     command: npm start
     ports:
       - 3003:3003
 
   frontend:
-    build: /frontend/
-    command: npm start
+    build: frontend/
+    command: serve -s build
     network_mode: host
     depends_on:
       - backend
